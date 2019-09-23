@@ -35,9 +35,10 @@
    * @param resolver
    */
   function promiseFunction(resolver) {
-    // if (utils.withNew(self)) {
-    //   throw new Error(errors.NEW_ERROR);
-    // }
+    // Проверка на вызов с new
+    if (!(this instanceof  promiseFunction)) {
+      throw new Error(errors.NEW_ERROR);
+    }
 
     this.status = status.PENDING;
     this.value = false;
